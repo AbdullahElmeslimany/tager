@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tager/view/order/helper/state_order/state_order.dart';
 
 class Order extends StatelessWidget {
   const Order({super.key});
@@ -8,72 +9,63 @@ class Order extends StatelessWidget {
   Widget build(BuildContext context) {
     String typeOrder = "يدوي";
     String numberOrder = "381-1";
+    int numItemOrder = 2;
+    String statusOrder = "غير مشحون";
     String date = "20 نوفمبر 2023";
+    String totalPrice = "120.00";
     return DefaultTabController(
       length: 5,
       animationDuration: const Duration(seconds: 1),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "الطلبات",
-            style: TextStyle(),
-          ),
-          bottom: TabBar(
-            isScrollable: true,
-            dividerColor: Colors.white,
-            onTap: (value) {
-              print(value);
-            },
-            unselectedLabelColor: Colors.grey,
+          appBar: AppBar(
+            title: const Text(
+              "الطلبات",
+              style: TextStyle(),
+            ),
+            bottom: TabBar(
+              isScrollable: true,
+              dividerColor: Colors.white,
+              onTap: (value) {
+                print(value);
+              },
+              unselectedLabelColor: Colors.grey,
 
-            // indicator: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(15), color: Colors.amber),
-            indicatorSize: TabBarIndicatorSize.label,
-            tabs: const [
-              Tab(text: "الكل"),
-              Tab(text: "غير مشحون"),
-              Tab(text: "تم الشحن"),
-              Tab(text: "في الطريق"),
-              Tab(text: "تم التوصيل"),
-            ],
+              // indicator: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(15), color: Colors.amber),
+              indicatorSize: TabBarIndicatorSize.label,
+              tabs: const [
+                Tab(text: "الكل"),
+                Tab(text: "غير مشحون"),
+                Tab(text: "تم الشحن"),
+                Tab(text: "في الطريق"),
+                Tab(text: "تم التوصيل"),
+              ],
+            ),
           ),
-        ),
-        body: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: 1,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    // height: 80,
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 19),
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade300),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "طلب $typeOrder | رقم الطلب: $numberOrder#",
-                          style: GoogleFonts.poppins(fontSize: 15),
-                        ),
-                        Text(
-                          date,
-                          style: GoogleFonts.poppins(
-                              fontSize: 12, color: Colors.grey),
-                        )
-                      ],
-                    ),
-                  );
-                },
-              ),
-            )
-          ],
-        ),
-      ),
+          body: TabBarView(children: [
+            Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: 1,
+                    itemBuilder: (BuildContext context, int index) {
+                      return StateOrder(
+                          typeOrder: typeOrder,
+                          numberOrder: numberOrder,
+                          numItemOrder: numItemOrder,
+                          statusOrder: statusOrder,
+                          date: date,
+                          totalPrice: totalPrice);
+                    },
+                  ),
+                )
+              ],
+            ),
+            Container(),
+            Container(),
+            Container(),
+            Container(),
+          ])),
     );
   }
 }

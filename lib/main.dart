@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:tager/view/order_detials/order_detials.dart';
 import 'view/home/home.dart';
 import 'view/order/order.dart';
 
@@ -19,8 +19,9 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
           textTheme: TextTheme(
-            bodyMedium: GoogleFonts.poppins(),
-          )),
+              bodyMedium: GoogleFonts.alexandria(),
+              bodyLarge: GoogleFonts.alexandria(),
+              bodySmall: GoogleFonts.alexandria(),)),
       builder: (context, child) {
         return Directionality(
             textDirection: TextDirection.rtl,
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
                     data: MediaQuery.of(context).copyWith(
                       textScaler: TextScaler.linear(1.0),
                     ),
-                    child: Order());
+                    child: OrderDetials());
               },
             ));
       },

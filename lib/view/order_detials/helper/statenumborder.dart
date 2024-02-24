@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,7 +21,9 @@ stateNumbOrder(String numberOrder, String statusOrder, String date) {
                   style: GoogleFonts.aDLaMDisplay(fontSize: 22),
                 ),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Clipboard.setData(ClipboardData(text: numberOrder));
+                    },
                     icon: const Icon(
                       Icons.copy,
                       size: 22,

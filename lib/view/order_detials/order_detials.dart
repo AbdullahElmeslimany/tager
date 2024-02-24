@@ -32,7 +32,10 @@ class OrderDetials extends StatelessWidget {
             stateNumbOrder(numberOrder, statusOrder, date),
             detialsClient(nameClient, numItemOrder, gavermentClient, cityClient,
                 countryClient, phoneClient),
-            pointLine(),
+            Container(
+              height: 10,
+              color: Colors.grey.shade200,
+            ),
             Expanded(
                 child: Column(
               children: [
@@ -42,7 +45,7 @@ class OrderDetials extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: 4,
                       itemBuilder: (BuildContext context, int index) {
-                        return Container(
+                        return SizedBox(
                           height: 68,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,7 +59,7 @@ class OrderDetials extends StatelessWidget {
                                           height: 90, width: 90),
                                       Container(
                                         margin: const EdgeInsets.only(
-                                            left: 10, top: 20),
+                                            left: 12, top: 20),
                                         height: 25,
                                         width: 25,
                                         decoration: BoxDecoration(

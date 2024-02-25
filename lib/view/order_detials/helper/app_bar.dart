@@ -29,15 +29,43 @@ appBarOrderDetials() {
                   return pw.Directionality(
                       textDirection: pw.TextDirection.rtl,
                       child: pw.ListView(children: [
-                        pw.Text("Yech"),
+                        pw.Text("Yech",
+                            style: const pw.TextStyle(fontSize: 22)),
                         pw.Row(children: [
-                          pw.Text("طلب رقم"),
-                          pw.Text("1-359"),
-                        ]),
-                        pw.Row(children: [
-                          pw.Text("التاريخ:"),
+                          pw.Text("التاريخ :  "),
+                          // pw.SizedBox(width: 5),
                           pw.Text("31-12-2023"),
-                        ])
+                        ]),
+                        pw.SizedBox(height: 10),
+                        pw.Row(children: [
+                          pw.Text("طلب رقم :  ",
+                              style: const pw.TextStyle(fontSize: 14)),
+                          pw.Text("1-359",
+                              style: const pw.TextStyle(fontSize: 14)),
+                        ]),
+                        pw.SizedBox(height: 25),
+                        pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Row(children: [
+                                pw.Text("معلومات العميل",
+                                    style: const pw.TextStyle(fontSize: 13)),
+                              ]),
+                              pw.SizedBox(height: 12),
+                              pw.Row(children: [
+                                pw.Text("اسم :  ",
+                                    style: const pw.TextStyle(fontSize: 10)),
+                                pw.Text("محمد",
+                                    style: const pw.TextStyle(fontSize: 10)),
+                              ]),
+                              pw.SizedBox(height: 5),
+                              pw.Text("01278787878",
+                                  style: const pw.TextStyle(fontSize: 10)),
+                              pw.SizedBox(height: 5),
+                              pw.Text("الدقهلية , المنصورة",
+                                  style: const pw.TextStyle(fontSize: 10)),
+                            ]),
+                        pw.SizedBox(height: 25)
                       ])); // Center
                 })); // Page
             final output = await getTemporaryDirectory();

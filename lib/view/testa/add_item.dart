@@ -1,156 +1,145 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:tager/model/textfromfieldcustom/textfromfieldcustom.dart';
-
-import 'cubit/update_list_cubit.dart';
+import '../../model/textfromfieldcustom/textfromfieldcustom.dart';
+import 'helper/addImage_product.dart';
 
 class AddItem extends StatelessWidget {
   const AddItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    int item = 0;
-    late File image;
-    List imagelist = [];
     TextEditingController nameproduct = TextEditingController();
+    TextEditingController descraptionproduct = TextEditingController();
+    TextEditingController price = TextEditingController();
+    TextEditingController quantity = TextEditingController();
+    TextEditingController saleprice = TextEditingController();
+    GlobalKey<FormState> addItemForm = GlobalKey<FormState>();
     return Scaffold(
       body: SafeArea(
-          child: Container(
-        width: MediaQuery.sizeOf(context).width,
-        margin: const EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "اسم المنتج",
-              style: TextStyle(fontSize: 12),
-            ),
-            const Gap(10),
-            Center(
-              child: textFromFieldcustom(
-                  width: MediaQuery.sizeOf(context).width - 45,
-                  hight: 12,
-                  controller: nameproduct,
-                  text: "قم بادخال اسم المنتج"),
-            ),
-            const Gap(15),
-            const Text(
-              "وصف المنتج",
-              style: TextStyle(fontSize: 12),
-            ),
-            const Gap(10),
-            Center(
-              child: textFromFieldcustom(
-                  width: MediaQuery.sizeOf(context).width - 45,
-                  hight: 12,
-                  controller: nameproduct,
-                  text: "قم بادخال اسم المنتج"),
-            ),
-            const Gap(15),
-            const Text(
-              "صورة المنتج",
-              style: TextStyle(fontSize: 12),
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+          child: Form(
+        key: addItemForm,
+        child: Container(
+          width: MediaQuery.sizeOf(context).width,
+          margin: const EdgeInsets.symmetric(horizontal: 15),
+          child: SingleChildScrollView(
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                InkWell(
-                  onTap: () async {
-                    BlocProvider.of<SelectImageCubit>(context)
-                        .addMoreItem(item: item);
-                  },
-                  child: Container(
-                    height: 90,
-                    width: 80,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            "assets/icons/addimage.png",
-                            height: 30,
-                            width: 30,
-                          ),
-                          const Text(
-                            "اضافة منتج",
-                            style: TextStyle(fontSize: 10),
-                          )
-                        ],
-                      ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Gap(18),
+                    const Text(
+                      "اسم المنتج",
+                      style: TextStyle(fontSize: 12),
                     ),
-                  ),
-                ),
-                BlocConsumer<SelectImageCubit, UpdateListState>(
-                  listener: (context, state) {
-                    if (state is AdditemState) {
-                      item = state.item;
-                      image = state.image;
-                      imagelist.addAll(state.imagelist);
-                    }
-                    if (state is RemoveitemState) {
-                      imagelist.addAll(state.image);
-                    }
-                  },
-                  builder: (context, state) {
-                    return Container(
-                      width: MediaQuery.sizeOf(context).width - 120,
-                      height: 150,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: imagelist.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Center(
-                            child: Container(
-                              height: 105,
-                              width: 90,
-                              // color: Colors.amber,
-                              margin: const EdgeInsets.symmetric(horizontal: 7),
-                              child: Stack(
-                                  alignment: AlignmentDirectional.topEnd,
-                                  children: [
-                                    Center(
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image.file(
-                                          // image,
-                                          imagelist[index],
-                                          height: 90,
-                                          width: 80,
-                                          fit: BoxFit.fill,
-                                        ),
-                                      ),
-                                    ),
-                                    InkWell(
-                                      onTap: () {
-                                        BlocProvider.of<SelectImageCubit>(
-                                                context)
-                                            .removeImage(
-                                                image: imagelist[index]);
-                                      },
-                                      child: const Icon(
-                                        Icons.highlight_remove_rounded,
-                                        color: Colors.deepOrange,
-                                      ),
-                                    )
-                                  ]),
+                    const Gap(10),
+                    Center(
+                      child: textFromFieldcustom(
+                          width: MediaQuery.sizeOf(context).width - 45,
+                          hight: 12,
+                          controller: nameproduct,
+                          text: "قم بادخال اسم المنتج"),
+                    ),
+                    const Gap(15),
+                    const Text(
+                      "وصف المنتج",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    const Gap(10),
+                    Center(
+                      child: textFromFieldcustom(
+                          width: MediaQuery.sizeOf(context).width - 45,
+                          hight: 12,
+                          controller: descraptionproduct,
+                          text: "قم بادخال وصف المنتج",
+                          length: true),
+                    ),
+                    const Gap(15),
+                    const Text(
+                      "صورة المنتج",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    imageProduct(context),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "السعر",
+                              style: TextStyle(fontSize: 12),
                             ),
-                          );
-                        },
-                      ),
-                    );
-                  },
+                            const Gap(7),
+                            textFromFieldcustom(
+                                keyboardType: TextInputType.number,
+                                hight: 10,
+                                width: MediaQuery.sizeOf(context).width / 2.5,
+                                controller: price,
+                                text: "EGP")
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "السعر قبل الخصم",
+                              style: TextStyle(fontSize: 12),
+                            ),
+                            const Gap(7),
+                            textFromFieldcustom(
+                                keyboardType: TextInputType.number,
+                                hight: 10,
+                                width: MediaQuery.sizeOf(context).width / 2.5,
+                                controller: saleprice,
+                                text: "EGP")
+                          ],
+                        ),
+                      ],
+                    ),
+                    const Gap(22),
+                    const Text(
+                      "الكمية",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    const Gap(7),
+                    textFromFieldcustom(
+                        keyboardType: TextInputType.number,
+                        hight: 10,
+                        width: MediaQuery.sizeOf(context).width / 2.5,
+                        controller: quantity,
+                        text: "")
+                  ],
                 ),
+                const Gap(50),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      width: MediaQuery.sizeOf(context).width - 40,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 251, 105, 52),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: MaterialButton(
+                        onPressed: () {
+                          if (addItemForm.currentState!.validate()) {
+                            print("yess!");
+                          }
+                        },
+                        child: const Text(
+                          "اضافة المنتج",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    )
+                  ],
+                )
               ],
-            )
-          ],
+            ),
+          ),
         ),
       )),
     );

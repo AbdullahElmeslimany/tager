@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 textFromFieldcustom({
+  bool rtl = false,
+  maxLines = 1,
+  TextInputType keyboardType = TextInputType.name,
+  length = false,
   double width = 120,
   required TextEditingController controller,
   required String text,
@@ -11,16 +15,17 @@ textFromFieldcustom({
   return SizedBox(
     width: width,
     child: TextFormField(
+      maxLines: maxLines,
+      maxLength: length == true ? 250 : null,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return '* Your Cupon Is Not Correct ';
+          return '* يرجي اكمال البيانات';
         }
         return null;
       },
       controller: controller,
       style: const TextStyle(fontSize: 13),
-
-      keyboardType: TextInputType.name,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
           contentPadding:
               EdgeInsets.symmetric(horizontal: padding, vertical: hight),
@@ -42,7 +47,7 @@ textFromFieldcustom({
           ),
           hintText: text,
           hintStyle: const TextStyle(fontSize: 13)),
-      // textAlign: TextAlign.end,
+      textAlign: rtl == true ? TextAlign.end : TextAlign.start,
     ),
   );
 }

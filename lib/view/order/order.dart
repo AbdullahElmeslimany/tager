@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
+import 'package:tager/view/new_order/new_order.dart';
 import 'package:tager/view/order/helper/state_order/state_order.dart';
 
 class Order extends StatelessWidget {
@@ -22,6 +23,17 @@ class Order extends StatelessWidget {
               "الطلبات",
               style: TextStyle(),
             ),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    Get.to(const NewOrder());
+                  },
+                  icon: Icon(
+                    Icons.add_circle_outline,
+                    size: 30,
+                    color: Colors.grey.shade600,
+                  ))
+            ],
             bottom: TabBar(
               isScrollable: true,
               dividerColor: Colors.white,

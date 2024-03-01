@@ -42,9 +42,9 @@ class MyApp extends StatelessWidget {
           //   return
           // },
           home: const Directionality(
-              textDirection: TextDirection.rtl,
-              //  child: AddItem()
-              child: HomePage()),
+              textDirection: TextDirection.rtl, child: HomePage()
+              // child: NewOrder()
+              ),
         ));
   }
 }

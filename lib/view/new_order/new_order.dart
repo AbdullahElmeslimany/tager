@@ -15,11 +15,10 @@ class NewOrder extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            Expanded(
-              flex: 5,
-              child: Column(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
@@ -34,7 +33,8 @@ class NewOrder extends StatelessWidget {
                         controller: neworder,
                         text: "ابحث عن منتج"),
                   ),
-                  Expanded(
+                  Container(
+                    height: 100,
                     child: ListView.builder(
                       itemCount: 0,
                       itemBuilder: (BuildContext context, int index) {
@@ -92,9 +92,7 @@ class NewOrder extends StatelessWidget {
                   const Gap(30),
                 ],
               ),
-            ),
-            Expanded(
-              child: Column(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
@@ -117,9 +115,9 @@ class NewOrder extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

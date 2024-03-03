@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tager/view/clients/client.dart';
 import 'package:tager/view/order_detials/order_detials.dart';
-import 'package:tager/view/testa/cubit/update_list_cubit.dart';
-import 'package:tager/view/testa/add_item.dart';
+import 'package:tager/view/add_item/cubit/update_list_cubit.dart';
+import 'package:tager/view/add_item/add_item.dart';
+import 'view/app_bar_buttom/bar_buttom_app.dart';
 import 'view/home/home.dart';
 import 'view/new_order/new_order.dart';
 import 'view/order/order.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
           //   return
           // },
           home: const Directionality(
-              textDirection: TextDirection.rtl, child: HomePage()
+              textDirection: TextDirection.rtl, child: ButtonNavigationBar()
               // child: NewOrder()
               ),
         ));

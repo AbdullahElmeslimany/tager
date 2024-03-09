@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:tager/model/textfromfieldcustom/textfromfieldcustom.dart';
 
+import '../client_detials/client_detials.dart';
 import '../clientdetials/clientdetials.dart';
 
 class ClientPage extends StatelessWidget {
@@ -162,7 +163,10 @@ class ClientPage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
                     onTap: () {
-                      Get.to(const ClientDetials());
+                      Get.to(ClientDitials(
+                        name: nameClient.text,
+                        phone: phoneClient.text,
+                      ));
                     },
                     child: Container(
                       height: 95,

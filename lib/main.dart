@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tager/view/clients/client.dart';
-import 'package:tager/view/order_detials/order_detials.dart';
 import 'package:tager/view/add_item/cubit/update_list_cubit.dart';
-import 'package:tager/view/add_item/add_item.dart';
 import 'view/app_bar_buttom/bar_buttom_app.dart';
-import 'view/home/home.dart';
-import 'view/new_order/new_order.dart';
-import 'view/order/order.dart';
+import 'view/client_detials/client_detials.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +39,10 @@ class MyApp extends StatelessWidget {
           // },
           home: const Directionality(
               textDirection: TextDirection.rtl, child: ButtonNavigationBar()
-              // child: NewOrder()
+              // child: ClientDitials(
+              //   name: "ahmed",
+              //   phone: "01099844444",
+              // )
               ),
         ));
   }

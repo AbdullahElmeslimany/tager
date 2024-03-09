@@ -1,13 +1,38 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import '../../model/textfromfieldcustom/textfromfieldcustom.dart';
-import 'helper/addimage_product.dart';
+import '../add_item/helper/addimage_product.dart';
 
-class AddItem extends StatelessWidget {
-  const AddItem({super.key});
+class ItemDetials extends StatefulWidget {
+  const ItemDetials({super.key});
+
+  @override
+  State<ItemDetials> createState() => _ItemDetialsState();
+}
+
+class _ItemDetialsState extends State<ItemDetials> {
+  bool active = false;
+
+  void onchange() {
+    setState(() {
+      active = true;
+    });
+  }
+
+  @override
+  void initState() {
+    onchange();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    List<String> first = [
+      "https://www.gstatic.com/webp/gallery3/1.sm.png",
+      "https://via.placeholder.com/300/09f/fff.png",
+      "https://via.placeholder.com/150/FF0000/FFFFFF?Text=yttags.com"
+    ];
     TextEditingController nameproduct = TextEditingController();
     TextEditingController descraptionproduct = TextEditingController();
     TextEditingController price = TextEditingController();
@@ -30,6 +55,20 @@ class AddItem extends StatelessWidget {
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  CarouselSlider.builder(
+                    options: CarouselOptions(height: 161),
+                    itemCount: first.length,
+                    itemBuilder: (context, index, realIndex) {
+                      final firstImage = first[index];
+
+                      return Image.network(
+                        first[index],
+                        fit: BoxFit.cover,
+                        width: 250,
+                        height: 50,
+                      );
+                    },
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

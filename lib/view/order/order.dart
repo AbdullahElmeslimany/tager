@@ -28,10 +28,10 @@ class Order extends StatelessWidget {
                   onPressed: () {
                     Get.to(const NewOrder());
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.add_circle_outline,
                     size: 30,
-                    color: Colors.grey.shade600,
+                    color: Color.fromARGB(255, 0, 92, 197),
                   ))
             ],
             bottom: TabBar(

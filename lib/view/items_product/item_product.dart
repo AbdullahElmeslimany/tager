@@ -31,6 +31,8 @@ class ItemsProductPage extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
+                //  shrinkWrap: true,
+                //  physics: const NeverScrollableScrollPhysics(),
                 itemCount: 2,
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(

@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:tager/model/textfromfieldcustom/textfromfieldcustom.dart';
-
 import '../client_detials/client_detials.dart';
-import '../clientdetials/clientdetials.dart';
 
 class ClientPage extends StatelessWidget {
   const ClientPage({super.key});

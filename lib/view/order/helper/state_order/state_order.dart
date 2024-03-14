@@ -109,7 +109,53 @@ class StateOrder extends StatelessWidget {
                       color: Colors.teal,
                       borderRadius: BorderRadius.circular(5)),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.bottomSheet(Container(
+                        height: 240,
+                        width: MediaQuery.sizeOf(context).width,
+                        color: Colors.white,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.sizeOf(context).width,
+                              child: MaterialButton(
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                child: const Text("تم الشحن"),
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.sizeOf(context).width,
+                              child: MaterialButton(
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                child: const Text("في الطريق"),
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.sizeOf(context).width,
+                              child: MaterialButton(
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                child: const Text("تم التوصيل"),
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.sizeOf(context).width,
+                              child: MaterialButton(
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                child: const Text("الغاء الطلب"),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ));
+                    },
                     child: Text("اتخاذ اجراء",
                         style: GoogleFonts.alexandria(
                             fontSize: 13,

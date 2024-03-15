@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tager/view/add_item/cubit/update_list_cubit.dart';
 import 'view/app_bar_buttom/bar_buttom_app.dart';
-import 'view/client_detials/client_detials.dart';
 
 void main() {
   runApp(const MyApp());

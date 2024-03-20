@@ -101,7 +101,8 @@ class ClientPage extends StatelessWidget {
                                 text: "ملاحظات"),
                             Container(
                               width: MediaQuery.sizeOf(context).width - 25,
-                              margin: const EdgeInsets.symmetric(vertical: 15),
+                              margin:
+                                  const EdgeInsets.symmetric(vertical: 15),
                               decoration: BoxDecoration(
                                   color: Colors.amber,
                                   borderRadius: BorderRadius.circular(15)),

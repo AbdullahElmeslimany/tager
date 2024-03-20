@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../product_detials/product_detials.dart';
 
 class ItemsProductPage extends StatelessWidget {
   const ItemsProductPage({super.key});
@@ -37,7 +40,7 @@ class ItemsProductPage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
                     onTap: () {
-                      // Get.to(const ClientDetials());
+                      Get.to(const ProductDetials());
                     },
                     child: Container(
                       height: 95,

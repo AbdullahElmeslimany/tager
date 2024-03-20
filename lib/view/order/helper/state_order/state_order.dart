@@ -113,8 +113,10 @@ class StateOrder extends StatelessWidget {
                       Get.bottomSheet(Container(
                         height: 240,
                         width: MediaQuery.sizeOf(context).width,
+                        padding: const EdgeInsets.all(10),
                         color: Colors.white,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SizedBox(
                               width: MediaQuery.sizeOf(context).width,
@@ -122,7 +124,16 @@ class StateOrder extends StatelessWidget {
                                 onPressed: () {
                                   Get.back();
                                 },
-                                child: const Text("تم الشحن"),
+                                child: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Icon(
+                                      Icons.cancel_outlined,
+                                      color: Colors.red,
+                                    ),
+                                    Text("تم الشحن"),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -131,7 +142,16 @@ class StateOrder extends StatelessWidget {
                                 onPressed: () {
                                   Get.back();
                                 },
-                                child: const Text("في الطريق"),
+                                child: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Icon(
+                                      Icons.undo_rounded,
+                                      color: Colors.red,
+                                    ),
+                                    Text("في الطريق"),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -140,7 +160,15 @@ class StateOrder extends StatelessWidget {
                                 onPressed: () {
                                   Get.back();
                                 },
-                                child: const Text("تم التوصيل"),
+                                child: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Icon(
+                                      Icons.local_car_wash_sharp,
+                                    ),
+                                    Text("تم التوصيل"),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -149,7 +177,19 @@ class StateOrder extends StatelessWidget {
                                 onPressed: () {
                                   Get.back();
                                 },
-                                child: const Text("الغاء الطلب"),
+                                child: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Icon(
+                                      Icons.cancel_outlined,
+                                      color: Colors.red,
+                                    ),
+                                    Text(
+                                      "الغاء الطلب",
+                                      style: TextStyle(color: Colors.red),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],

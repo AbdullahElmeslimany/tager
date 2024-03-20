@@ -113,7 +113,7 @@ class ButtonNavigationBar extends StatelessWidget {
       ),
       screenTransitionAnimation: const ScreenTransitionAnimation(
         animateTabTransition: true,
-        curve: Curves.ease,
+        curve: Curves.slowMiddle,
         duration: Duration(milliseconds: 200),
       ),
       navBarStyle: NavBarStyle.style15,

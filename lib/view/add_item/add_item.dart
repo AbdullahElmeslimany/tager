@@ -48,12 +48,18 @@ class AddItem extends StatelessWidget {
                       ),
                       const Gap(15),
                       const Text(
-                        "وصف المنتج",
+                        "صورة المنتج",
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      imageProduct(context),
+                      const Text(
+                        "الوصف",
                         style: TextStyle(fontSize: 12),
                       ),
                       const Gap(10),
                       Center(
                         child: textFromFieldcustom(
+                            maxLines: 3,
                             width: MediaQuery.sizeOf(context).width - 45,
                             hight: 12,
                             controller: descraptionproduct,
@@ -61,11 +67,6 @@ class AddItem extends StatelessWidget {
                             length: true),
                       ),
                       const Gap(15),
-                      const Text(
-                        "صورة المنتج",
-                        style: TextStyle(fontSize: 12),
-                      ),
-                      imageProduct(context),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [

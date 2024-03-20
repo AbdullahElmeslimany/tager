@@ -30,7 +30,7 @@ Row imageProduct(BuildContext context) {
                   width: 30,
                 ),
                 const Text(
-                  "اضافة منتج",
+                  "اضافة صورة",
                   style: TextStyle(fontSize: 10),
                 )
               ],

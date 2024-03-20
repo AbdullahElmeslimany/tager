@@ -1,17 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import '../../model/textfromfieldcustom/textfromfieldcustom.dart';
 import '../add_item/helper/addimage_product.dart';
 
-class ItemDetials extends StatefulWidget {
-  const ItemDetials({super.key});
+class ProductDetials extends StatefulWidget {
+  const ProductDetials({super.key});
 
   @override
-  State<ItemDetials> createState() => _ItemDetialsState();
+  State<ProductDetials> createState() => _ProductDetialsState();
 }
 
-class _ItemDetialsState extends State<ItemDetials> {
+class _ProductDetialsState extends State<ProductDetials> {
   bool active = false;
 
   void onchange() {
@@ -41,6 +42,62 @@ class _ItemDetialsState extends State<ItemDetials> {
     GlobalKey<FormState> addItemForm = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: IconButton(
+                onPressed: () {
+                  Get.defaultDialog(
+                      backgroundColor: Colors.white,
+                      title: "هل تريد حذف المنتج؟",
+                      content: Column(
+                        children: [
+                          Container(
+                            width: MediaQuery.sizeOf(context).width / 1.6,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: const Color.fromARGB(255, 251, 105, 52)),
+                            child: MaterialButton(
+                              onPressed: () {
+                                Get.back();
+                                Get.back();
+                              },
+                              child: const Text("حذف",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ),
+                          ),
+                          const Gap(10),
+                          Container(
+                            width: MediaQuery.sizeOf(context).width / 1.6,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(15),
+                              // color: const Color.fromARGB(255, 251, 105, 52)
+                            ),
+                            child: MaterialButton(
+                              onPressed: () {
+                                Get.back();
+                              },
+                              child: const Text(
+                                "الغاء",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 0, 42, 105)),
+                              ),
+                            ),
+                          )
+                        ],
+                      ));
+                },
+                icon: const Icon(
+                  Icons.delete_forever,
+                  color: Color.fromARGB(255, 251, 105, 52),
+                  size: 30,
+                )),
+          ),
+        ],
         title: const Text("منتج جدبد"),
       ),
       body: SafeArea(
@@ -100,11 +157,11 @@ class _ItemDetialsState extends State<ItemDetials> {
                             length: true),
                       ),
                       const Gap(15),
-                      const Text(
-                        "صورة المنتج",
-                        style: TextStyle(fontSize: 12),
-                      ),
-                      imageProduct(context),
+                      // const Text(
+                      //   "صورة المنتج",
+                      //   style: TextStyle(fontSize: 12),
+                      // ),
+                      // imageProduct(context),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [

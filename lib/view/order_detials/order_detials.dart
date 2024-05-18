@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tager/model/point_line.dart';
+import '../../model/delivery/delivery.dart';
 import 'helper/app_bar.dart';
 import 'helper/detials_client.dart';
 import 'helper/statenumborder.dart';
@@ -31,6 +32,9 @@ class OrderDetials extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const DeliveryStatus(
+                  status: 2,
+                ),
                 stateNumbOrder(numberOrder, statusOrder, date),
                 detialsClient(nameClient, numItemOrder, gavermentClient,
                     cityClient, countryClient, phoneClient),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../add_item/cubit/update_list_cubit.dart';
@@ -85,11 +87,11 @@ Row imageProduct(BuildContext context) {
                               // print(imagelist[index]);
 
                               BlocProvider.of<SelectImageCubit>(context)
-                                  .removeImage(image: imagelist[index]);
+                                  .removeImage(image: index);
                               print("========================");
-                              print(imagelist[index]);
+                              // log(index.toString());
                               print("=====================");
-                              imagelist.clear();
+                              // imagelist.clear();
                             },
                             child: const Icon(
                               Icons.highlight_remove_rounded,

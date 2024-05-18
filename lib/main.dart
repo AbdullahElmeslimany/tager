@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tager/view/add_item/cubit/update_list_cubit.dart';
-import 'view/app_bar_buttom/bar_buttom_app.dart';
+import 'view/app_bar_buttom/buttom_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ],
         child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Tager',
+          title: 'Tager Seller',
           theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           //   return
           // },
           home: const Directionality(
-              textDirection: TextDirection.rtl, child: ButtonNavigationBar()
+              textDirection: TextDirection.rtl, child: BottomBarCustom()
               // child: ClientDitials(
               //   name: "ahmed",
               //   phone: "01099844444",

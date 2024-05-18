@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
@@ -24,7 +25,8 @@ class SelectImageCubit extends Cubit<UpdateListState> {
   }
 
   removeImage({required image}) async {
-    imagelist.remove(image);
+    log(image.toString());
+    // imagelist.remove(1);
     emit(RemoveitemState(image: imagelist));
   }
 }

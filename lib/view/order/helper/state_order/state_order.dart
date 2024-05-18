@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tager/view/order_detials/order_detials.dart';
@@ -127,11 +128,12 @@ class StateOrder extends StatelessWidget {
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Icon(
-                                      Icons.cancel_outlined,
-                                      color: Colors.red,
-                                    ),
                                     Text("تم الشحن"),
+                                    Gap(10),
+                                    Icon(
+                                      Icons.gpp_good_outlined,
+                                      color: Colors.blue,
+                                    ),
                                   ],
                                 ),
                               ),
@@ -145,11 +147,12 @@ class StateOrder extends StatelessWidget {
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
+                                    Text("في الطريق"),
+                                    Gap(10),
                                     Icon(
                                       Icons.undo_rounded,
-                                      color: Colors.red,
+                                      color: Colors.blue,
                                     ),
-                                    Text("في الطريق"),
                                   ],
                                 ),
                               ),
@@ -163,10 +166,12 @@ class StateOrder extends StatelessWidget {
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Icon(
-                                      Icons.local_car_wash_sharp,
-                                    ),
                                     Text("تم التوصيل"),
+                                    Gap(10),
+                                    Icon(
+                                      Icons.delivery_dining_rounded,
+                                      color: Colors.blue,
+                                    ),
                                   ],
                                 ),
                               ),
@@ -180,13 +185,14 @@ class StateOrder extends StatelessWidget {
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    Icon(
-                                      Icons.cancel_outlined,
-                                      color: Colors.red,
-                                    ),
                                     Text(
                                       "الغاء الطلب",
                                       style: TextStyle(color: Colors.red),
+                                    ),
+                                    Gap(10),
+                                    Icon(
+                                      Icons.cancel_outlined,
+                                      color: Colors.red,
                                     ),
                                   ],
                                 ),

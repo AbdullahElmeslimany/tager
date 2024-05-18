@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:tager/model/textfromfieldcustom/textfromfieldcustom.dart';
-import 'package:tager/view/app_bar_buttom/bar_buttom_app.dart';
+
+import '../app_bar_buttom/buttom_bar.dart';
 
 class ClientDitials extends StatelessWidget {
   final String name;
@@ -77,7 +78,7 @@ class ClientDitials extends StatelessWidget {
                             titleText: const Directionality(
                                 textDirection: TextDirection.rtl,
                                 child: Text("تم التعديل بنجاح")));
-                        Get.offAll(const ButtonNavigationBar());
+                        Get.offAll(const BottomBarCustom());
                       },
                       child: const Text(
                         "حفظ",

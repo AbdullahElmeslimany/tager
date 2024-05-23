@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 textFromFieldcustom({
   bool rtl = false,
+  bool enabled = true,
   maxLines = 1,
   TextInputType keyboardType = TextInputType.name,
   length = false,
@@ -15,6 +16,7 @@ textFromFieldcustom({
   return SizedBox(
     width: width,
     child: TextFormField(
+      enabled: enabled,
       maxLines: maxLines,
       maxLength: length == true ? 250 : null,
       validator: (value) {

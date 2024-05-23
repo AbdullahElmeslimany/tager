@@ -52,17 +52,18 @@ class NewOrder extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {},
-                        child: const Row(
+                        child: Row(
                           children: [
                             Icon(
                               Icons.add_circle,
-                              color: Colors.amber,
+                              color: Colors.deepOrangeAccent.shade200,
                               size: 20,
                             ),
                             Text(
                               "اضافة منتج اخر",
-                              style:
-                                  TextStyle(color: Colors.amber, fontSize: 12),
+                              style: TextStyle(
+                                  color: Colors.deepOrangeAccent.shade200,
+                                  fontSize: 12),
                             )
                           ],
                         ),
@@ -112,7 +113,7 @@ class NewOrder extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 10),
                         decoration: BoxDecoration(
-                            color: Colors.amber,
+                            color: Colors.deepOrangeAccent.shade200,
                             borderRadius: BorderRadius.circular(10)),
                         child: MaterialButton(
                           onPressed: () {},

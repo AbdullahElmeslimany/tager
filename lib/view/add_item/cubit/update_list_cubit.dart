@@ -15,13 +15,15 @@ class SelectImageCubit extends Cubit<UpdateListState> {
     XFile? file = await ImagePicker().pickImage(source: ImageSource.gallery);
     // final   pickedImage =
     //     await imagePicker.pickImage(source: ImageSource.gallery);
-    File imagefile = File(file!.path);
-    print(imagefile);
-    print(imagefile.runtimeType);
-    imagelist.clear();
-    imagelist.add(imagefile);
-    item++;
-    emit(AdditemState(item: item, image: imagefile, imagelist: imagelist));
+    if (file != null) {
+      File imagefile = File(file.path);
+      print(imagefile);
+      print(imagefile.runtimeType);
+      imagelist.clear();
+      imagelist.add(imagefile);
+      item++;
+      emit(AdditemState(item: item, image: imagefile, imagelist: imagelist));
+    }
   }
 
   removeImage({required image}) async {

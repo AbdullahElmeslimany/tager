@@ -115,8 +115,6 @@ class _ProductDetialsState extends State<ProductDetials> {
                       options: CarouselOptions(height: 161),
                       itemCount: first.length,
                       itemBuilder: (context, index, realIndex) {
-                        final firstImage = first[index];
-
                         return Image.asset(
                           first[index],
                           fit: BoxFit.cover,

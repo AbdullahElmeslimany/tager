@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
+import 'package:tager/view/coupon/coupon.dart';
 import 'package:tager/view/home/home.dart';
 import '../clients/client.dart';
 import '../items_product/item_product.dart';
@@ -30,7 +31,7 @@ class _BottomBarCustomState extends State<BottomBarCustom> {
       screen: const ItemsProductPage(),
       item: ItemConfig(
         icon: Image.asset(
-          "assets/icons/basket.png",
+          "assets/icons/delivery-box.png",
           height: 35,
           width: 35,
           fit: BoxFit.fill,
@@ -60,6 +61,18 @@ class _BottomBarCustomState extends State<BottomBarCustom> {
           fit: BoxFit.fill,
         ),
         title: ("العملاء"),
+      ),
+    ),
+    PersistentTabConfig(
+      screen: const CouponPage(),
+      item: ItemConfig(
+        icon: Image.asset(
+          "assets/icons/coupon.png",
+          height: 80,
+          width: 40,
+          fit: BoxFit.fill,
+        ),
+        title: ("الكوبونات"),
       ),
     ),
   ];

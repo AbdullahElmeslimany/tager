@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tager/model/delivery/timeline.dart';
-import 'package:timeline_tile/timeline_tile.dart';
 
 class DeliveryStatus extends StatelessWidget {
   final int status;

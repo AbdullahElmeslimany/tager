@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:tager/view/new_client/new_client.dart';
@@ -172,7 +173,7 @@ class ClientPage extends StatelessWidget {
                       ));
                     },
                     child: Container(
-                      height: 115,
+                      height: 110,
                       margin:
                           const EdgeInsets.only(top: 10, left: 15, right: 15),
                       padding: const EdgeInsets.all(20),
@@ -191,10 +192,11 @@ class ClientPage extends StatelessWidget {
                                 color: Colors.green[800],
                               ),
                               const Gap(10),
-                              const Text(
+                              Text(
                                 "احمد محمد",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15.sp),
                               ),
                             ],
                           ),
@@ -212,6 +214,7 @@ class ClientPage extends StatelessWidget {
                                     "201012345678+",
                                     style: TextStyle(
                                         color: Colors.grey.shade700,
+                                        fontSize: 13.sp,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ],
@@ -223,6 +226,7 @@ class ClientPage extends StatelessWidget {
                                     "Mansoura, Egypt",
                                     style: TextStyle(
                                         color: Colors.grey.shade700,
+                                        fontSize: 13.sp,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   const Gap(3),

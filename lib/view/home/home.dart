@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tager/view/new_order/new_order.dart';
 import 'package:tager/view/add_item/add_item.dart';
+import 'package:tager/view/setting/setting.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String nameCompany = "Yech";
-    String linkCompany = "yach.tager.app";
+    String linkCompany = "yach.tager.com";
     return Scaffold(
       body: SafeArea(
           child: Padding(
@@ -28,9 +29,21 @@ class HomePage extends StatelessWidget {
                     "مرحبا !",
                     style: TextStyle(fontSize: 16),
                   ),
-                  Image.asset(
-                    "assets/icons/logo.png",
-                    height: 60,
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Get.to(const SettingPage());
+                          },
+                          icon: const Icon(
+                            Icons.settings_outlined,
+                            size: 28,
+                          )),
+                      Image.asset(
+                        "assets/icons/logo.png",
+                        height: 60,
+                      ),
+                    ],
                   )
                 ],
               ),
@@ -164,7 +177,6 @@ class HomePage extends StatelessWidget {
               //       filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
               //       child: const Center(child: Text("سوف يكون متاح قريبا")),
               //     ))
-
               Stack(alignment: Alignment.center, children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(25),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tager/view/order_detials/order_detials.dart';
@@ -113,8 +114,10 @@ class StateOrder extends StatelessWidget {
                       Get.bottomSheet(Container(
                         height: 240,
                         width: MediaQuery.sizeOf(context).width,
+                        padding: const EdgeInsets.all(10),
                         color: Colors.white,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SizedBox(
                               width: MediaQuery.sizeOf(context).width,
@@ -122,7 +125,17 @@ class StateOrder extends StatelessWidget {
                                 onPressed: () {
                                   Get.back();
                                 },
-                                child: const Text("تم الشحن"),
+                                child: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text("تم الشحن"),
+                                    Gap(10),
+                                    Icon(
+                                      Icons.gpp_good_outlined,
+                                      color: Colors.blue,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -131,7 +144,17 @@ class StateOrder extends StatelessWidget {
                                 onPressed: () {
                                   Get.back();
                                 },
-                                child: const Text("في الطريق"),
+                                child: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text("في الطريق"),
+                                    Gap(10),
+                                    Icon(
+                                      Icons.undo_rounded,
+                                      color: Colors.blue,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -140,7 +163,17 @@ class StateOrder extends StatelessWidget {
                                 onPressed: () {
                                   Get.back();
                                 },
-                                child: const Text("تم التوصيل"),
+                                child: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text("تم التوصيل"),
+                                    Gap(10),
+                                    Icon(
+                                      Icons.delivery_dining_rounded,
+                                      color: Colors.blue,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -149,7 +182,20 @@ class StateOrder extends StatelessWidget {
                                 onPressed: () {
                                   Get.back();
                                 },
-                                child: const Text("الغاء الطلب"),
+                                child: const Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      "الغاء الطلب",
+                                      style: TextStyle(color: Colors.red),
+                                    ),
+                                    Gap(10),
+                                    Icon(
+                                      Icons.cancel_outlined,
+                                      color: Colors.red,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],

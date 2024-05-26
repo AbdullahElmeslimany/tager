@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 textFromFieldcustom({
   bool rtl = false,
+  bool enabledvalidator = true,
+  bool enabled = true,
   maxLines = 1,
   TextInputType keyboardType = TextInputType.name,
-  length = false,
+  bool length = false,
   double width = 120,
+  int mixlength = 250,
   required TextEditingController controller,
   required String text,
   double hight = 23,
@@ -15,11 +18,15 @@ textFromFieldcustom({
   return SizedBox(
     width: width,
     child: TextFormField(
+      enabled: enabled,
       maxLines: maxLines,
-      maxLength: length == true ? 250 : null,
+      maxLength: length == true ? mixlength : null,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return '* يرجي اكمال البيانات';
+        if (enabledvalidator == true) {
+          if (value == null || value.isEmpty) {
+            return '* يرجي اكمال البيانات';
+          }
+          return null;
         }
         return null;
       },

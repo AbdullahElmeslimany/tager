@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
@@ -14,17 +15,20 @@ class SelectImageCubit extends Cubit<UpdateListState> {
     XFile? file = await ImagePicker().pickImage(source: ImageSource.gallery);
     // final   pickedImage =
     //     await imagePicker.pickImage(source: ImageSource.gallery);
-    File imagefile = File(file!.path);
-    print(imagefile);
-    print(imagefile.runtimeType);
-    imagelist.clear();
-    imagelist.add(imagefile);
-    item++;
-    emit(AdditemState(item: item, image: imagefile, imagelist: imagelist));
+    if (file != null) {
+      File imagefile = File(file.path);
+      print(imagefile);
+      print(imagefile.runtimeType);
+      imagelist.clear();
+      imagelist.add(imagefile);
+      item++;
+      emit(AdditemState(item: item, image: imagefile, imagelist: imagelist));
+    }
   }
 
   removeImage({required image}) async {
-    imagelist.remove(image);
+    log(image.toString());
+    // imagelist.remove(1);
     emit(RemoveitemState(image: imagelist));
   }
 }

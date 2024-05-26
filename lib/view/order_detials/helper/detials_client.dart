@@ -10,32 +10,40 @@ detialsClient(String nameClient, int numItemOrder, String gavermentClient,
       children: [
         const Text(
           "العميل",
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         const Gap(8),
         Text(nameClient,
-            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w300)),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
         const Gap(5),
-        Text("$numItemOrder طلب",
-            style: const TextStyle(fontSize: 14, color: Colors.black38)),
-        const Gap(5),
+        // Text("$numItemOrder طلب",
+        //     style: const TextStyle(fontSize: 14, color: Colors.black38)),
+        // const Gap(5),
         const Divider(
           color: Colors.black12,
         ),
         const Gap(10),
         const Text(
-          "معلومات العميل",
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+          "التواصل",
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
         const Gap(8),
-        Text(gavermentClient,
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w200)),
-        const Gap(5),
-        Text(cityClient,
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w200)),
-        const Gap(5),
-        Text(countryClient,
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w200)),
+        Row(
+          children: [
+            Text(countryClient,
+                style:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w200)),
+            const Gap(10),
+            Text(cityClient,
+                style:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w200)),
+            const Gap(10),
+            Text(gavermentClient,
+                style:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w200)),
+          ],
+        ),
+
         const Gap(5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

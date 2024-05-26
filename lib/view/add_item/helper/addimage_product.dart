@@ -30,7 +30,7 @@ Row imageProduct(BuildContext context) {
                   width: 30,
                 ),
                 const Text(
-                  "اضافة منتج",
+                  "اضافة صورة",
                   style: TextStyle(fontSize: 10),
                 )
               ],
@@ -85,11 +85,11 @@ Row imageProduct(BuildContext context) {
                               // print(imagelist[index]);
 
                               BlocProvider.of<SelectImageCubit>(context)
-                                  .removeImage(image: imagelist[index]);
+                                  .removeImage(image: index);
                               print("========================");
-                              print(imagelist[index]);
+                              // log(index.toString());
                               print("=====================");
-                              imagelist.clear();
+                              // imagelist.clear();
                             },
                             child: const Icon(
                               Icons.highlight_remove_rounded,

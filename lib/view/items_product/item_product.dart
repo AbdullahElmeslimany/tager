@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tager/view/add_item/add_item.dart';
+
+import '../product_detials/product_detials.dart';
 
 class ItemsProductPage extends StatelessWidget {
   const ItemsProductPage({super.key});
@@ -26,7 +30,18 @@ class ItemsProductPage extends StatelessWidget {
                     "المنتجات",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
-                )
+                ),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {
+                    Get.to(const AddItem());
+                  },
+                  icon: Icon(
+                    Icons.add_circle_outline_rounded,
+                    size: 28,
+                    color: Colors.deepOrange[800],
+                  ),
+                ),
               ],
             ),
             Expanded(
@@ -37,7 +52,7 @@ class ItemsProductPage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
                     onTap: () {
-                      // Get.to(const ClientDetials());
+                      Get.to(const ProductDetials());
                     },
                     child: Container(
                       height: 95,

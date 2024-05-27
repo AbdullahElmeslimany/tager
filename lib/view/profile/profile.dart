@@ -17,13 +17,14 @@ class Profile extends StatelessWidget {
     final width = MediaQuery.sizeOf(context).width;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             const Padding(
               padding: EdgeInsets.only(right: 8.0),
               child: Text(
-                "ملوك المتجر",
+                "معلومات المتجر",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
@@ -39,6 +40,8 @@ class Profile extends StatelessWidget {
           child: Directionality(
             textDirection: TextDirection.rtl,
             child: ListView(
+              shrinkWrap: true,
+              // physics: const BouncingScrollPhysics(),
               children: [
                 // const Center(
                 //     child: Text(

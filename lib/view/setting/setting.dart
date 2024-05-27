@@ -37,6 +37,8 @@ class SettingPage extends StatelessWidget {
               border: Border.all(color: Colors.grey),
               borderRadius: BorderRadius.circular(15)),
           child: ListView(
+            // shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             children: [
               cardSetting(
                   title: "بيانات متجرك",
@@ -82,7 +84,7 @@ class SettingPage extends StatelessWidget {
           style: TextStyle(fontSize: 11, color: Colors.grey[500]),
         ),
         leading: Icon(icon),
-        trailing: const Text("<Edit>"),
+        // trailing: const Text("<Edit>"),
       ),
     );
   }

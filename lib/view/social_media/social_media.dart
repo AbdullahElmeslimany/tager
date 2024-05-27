@@ -36,6 +36,8 @@ class SocialMediaPage extends StatelessWidget {
       body: Container(
           margin: const EdgeInsets.all(15),
           child: ListView(
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(),
             children: [
               const Text(
                 textAlign: TextAlign.end,
